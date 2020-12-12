@@ -11,7 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 // Inquirer prompts to gather input info.
-// Basic questions shared by all three roles and user defined role
+// Basic questions shared by all three roles and user defined role, validator to make sure we have inputs
 basicQuestions = async () => {
   const data = await inquirer.prompt([
     {
@@ -60,7 +60,7 @@ basicQuestions = async () => {
 
   // Role dependent switch case, prompting user questions that fit the role
   switch (data.role) {
-    // Manager prompt
+    // Manager prompt with validator
     case "Manager":
       const manager = await inquirer.prompt([
         {
@@ -85,7 +85,7 @@ basicQuestions = async () => {
       );
       return managerInput;
 
-    // Engineer prompt
+    // Engineer prompt with validator
     case "Engineer":
       const engineer = await inquirer.prompt([
         {
@@ -109,7 +109,7 @@ basicQuestions = async () => {
       );
       return engineerInput;
 
-    // Intern prompt
+    // Intern prompt with validator
     case "Intern":
       const intern = await inquirer.prompt([
         {
