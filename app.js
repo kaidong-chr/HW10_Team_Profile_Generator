@@ -52,7 +52,24 @@ const basicQuestions = () => {
         default:
             console.log("Continue")
             return
+
+        case "Engineer":
+            const engineer = ([
+                {
+                    type: 'input',
+                    name: 'github',
+                    message: "What is your github link?",
+                }
+            ])
+            let engineerInput = new engineer(data.name, data.id, data.email, engineer.github)
+            return engineerInput
+
+        default:
+            console.log("Continue")
+            return
+        
      }
+     
 }
 
 const employee = [];
