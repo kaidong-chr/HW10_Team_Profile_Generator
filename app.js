@@ -12,9 +12,9 @@ const render = require("./lib/htmlRenderer");
 
 
 // Inquirer prompts to gather input info.
-
-const basicQuestions = () => {
-    const input = inquirer.prompt([
+// Basic questions shared by all three roles and user defined role
+basicQuestions = async () => {
+    const data = await inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -37,20 +37,25 @@ const basicQuestions = () => {
             choices: ['Manager', 'Engineer', 'Intern']
         }
     ])
-    switch (input.role) {
+
+    // Role dependent switch case, prompting user questions that fit the role
+    switch (data.role) {
+        // Manager prompt
         case "Manager":
-            const manager = ([
+            const manager = await inquirer.prompt([
                 {
                     type: 'input',
                     name: 'officeNumber',
                     message: "What is the office number?",
                 }
             ])
+            // 
             let managerInput = new Manager(data.name, data.id, data.email, manager.officeNumber)
             return managerInput
 
+        // Engineer prompt
         case "Engineer":
-            const engineer = ([
+            const engineer = await inquirer.prompt([
                 {
                     type: 'input',
                     name: 'github',
@@ -60,8 +65,9 @@ const basicQuestions = () => {
             let engineerInput = new Engineer(data.name, data.id, data.email, engineer.github)
             return engineerInput
 
+        // Intern prompt
         case "Intern":
-            const intern = ([
+            const intern = await inquirer.prompt([
                 {
                     type: 'input',
                     name: 'school',
@@ -78,11 +84,27 @@ const basicQuestions = () => {
      
 }
 
+// Array to hold the employees
 const employee = [];
-const generateTeam = () => {
-    let team = basicQuestions();
+
+// Check for if the user wants to input additional team mates, otherwise we generate the html file.
+const generateTeam = async () => {
+    let team = await basicQuestions();
     employee.push(team);
-    fs.writeFile(outputPath, render(employee), (err) => err ? console.log(err) : console.log('Team profile generated!'));
+
+    inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'additional',
+            message: "Would you like to add more team members?"
+        },
+    ]).then((data) => {
+        if (data.additional) {
+            generateTeam();
+        } else {
+            fs.writeFile(outputPath, render(employee), (err) => err ? console.log(err) : console.log('Team profile generated!'));
+        }
+    });
 };
 
 generateTeam();
