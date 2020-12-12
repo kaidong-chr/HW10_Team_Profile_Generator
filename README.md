@@ -17,7 +17,7 @@
   - [License](#license)
 
   ### Demo
-![Image](./assets/Images/Profile_Generator.gif "README Demo")
+![Image](./assets/images/Profile_Generator.gif "README Demo")
 
 ![Image](https://img.shields.io/badge/Languages-JavaScript-yellow)
 
@@ -32,7 +32,7 @@
 
   ### Tests
   In the terminal run: <i>npm run test</i><br />
-  ![Image](./assets/Images/Profile_Generator_Test.jpg "Test Passed")
+  ![Image](./assets/images/Profile_Generator_Test.jpg "Test Passed")
 
   ### Contribution
   Kai Dong
