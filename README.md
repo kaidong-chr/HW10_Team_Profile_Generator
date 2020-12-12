@@ -11,10 +11,10 @@
   - [Implementation](#Implementation)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [License](#license)
   - [Contribution](#Contribution)
   - [Tests](#tests)
   - [Questions](#questions)
+  - [License](#license)
 
   ### Demo
 ![Image](./assets/Images/Profile_Generator.gif "README Demo")
@@ -31,7 +31,8 @@
   Install npm dependencies, then run <i>app.js</i> in the terminal, answer all prompts and check the output directory for <i>team.html</i> file. 
 
   ### Tests
-  In the terminal run: <i>npm run test</i>
+  In the terminal run: <i>npm run test</i><br />
+  ![Image](./assets/Images/Profile_Generator_Test.jpg "Test Passed")
 
   ### Contribution
   Kai Dong
