@@ -32,7 +32,7 @@
 
   ### Tests
   In the terminal run: <i>npm run test</i><br />
-  ![Image](./assets/images/Profile_Generator_Test.jpg =350px "Test Passed")
+  ![Image](./assets/images/Profile_Generator_Test.jpg "Test Passed")
 
   ### Contribution
   Kai Dong
