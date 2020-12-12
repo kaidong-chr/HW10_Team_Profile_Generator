@@ -18,16 +18,37 @@ basicQuestions = async () => {
       type: "input",
       name: "name",
       message: "What is the employee's name?",
+      validate: function (input) {
+        if (input === "") {
+            return "This field is required, please add an employee name";
+        } else {
+            return true;
+        }
+    }
     },
     {
       type: "input",
       name: "id",
       message: "What is the employee's ID?",
+      validate: function (input) {
+        if (input === "") {
+            return "This field is required, please add an employee ID";
+        } else {
+            return true;
+        }
+    }
     },
     {
       type: "input",
       name: "email",
       message: "What is the employee's email?",
+      validate: function (input) {
+        if (input === "") {
+            return "This field is required, please add an employee's email";
+        } else {
+            return true;
+        }
+    }
     },
     {
       type: "list",
@@ -46,6 +67,13 @@ basicQuestions = async () => {
           type: "input",
           name: "officeNumber",
           message: "What is the office number?",
+          validate: function (input) {
+              if (input === "") {
+                  return "This field is required, please add a office number";
+              } else {
+                  return true;
+              }
+          }
         },
       ]);
       //
@@ -64,6 +92,13 @@ basicQuestions = async () => {
           type: "input",
           name: "github",
           message: "Engineer, what is your github?",
+          validate: function (input) {
+            if (input === "") {
+                return "This field is required, please add a github link";
+            } else {
+                return true;
+            }
+        }
         },
       ]);
       let engineerInput = new Engineer(
@@ -81,6 +116,13 @@ basicQuestions = async () => {
           type: "input",
           name: "school",
           message: "Intern, what school do you currently attend?",
+          validate: function (input) {
+            if (input === "") {
+                return "This field is required, please add a school name";
+            } else {
+                return true;
+            }
+        }
         },
       ]);
       let internInput = new Intern(
@@ -91,9 +133,9 @@ basicQuestions = async () => {
       );
       return internInput;
 
-    default:
-      console.log("Continue");
-      return;
+    // default:
+    //   console.log("Continue");
+    //   return;
   }
 };
 
@@ -118,7 +160,7 @@ const generateTeam = async () => {
         generateTeam();
       } else {
         fs.writeFile(outputPath, render(employee), (err) =>
-          err ? console.log(err) : console.log("Team profile generated!")
+          err ? console.log(err) : console.log("Team profile generated! Check the output directory.")
         );
       }
     });
