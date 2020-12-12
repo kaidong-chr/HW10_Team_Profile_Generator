@@ -3,7 +3,7 @@
 ![badge](https://img.shields.io/badge/license-MIT-blue)<br />
 
   ### Description
-  A node CLI app that generates a team profile focusing use of object oriented programing and test driven development. 
+  A node CLI app that generates a team profile, Inquirer is use for input prompts and Jest used for testing. The user will follow the prompts to input necessary info, a validator will check if the info is acceptable. In the end a team's profile will be generated and visible in the output directory.
   
   ### Table of Contents
   - [Description](#description)
