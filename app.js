@@ -13,10 +13,8 @@ const render = require("./lib/htmlRenderer");
 
 // Inquirer prompts to gather input info.
 
-const employee = [];
-
-const employeeQuestions = () => {
-    inquirer.prompt([
+const basicQuestions = () => {
+    const input = inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -39,11 +37,32 @@ const employeeQuestions = () => {
             choices: ['Manager', 'Engineer', 'Intern']
         }
     ])
-    .then((data) => {
-        const 
+    switch (input.role) {
+        case "Manager":
+            const manager = ([
+                {
+                    type: 'input',
+                    name: 'officeNumber',
+                    message: "What is the office number?",
+                }
+            ])
+            let managerInput = new Manager(data.name, data.id, data.email, manager.officeNumber)
+            return managerInput
 
-    })
+        default:
+            console.log("Continue")
+            return
+     }
 }
+
+const employee = [];
+const generateTeam = () => {
+    // let team = basicQuestions();
+    // employee.push(team);
+    fs.writeFile(outputPath, render(employee), (err) => err ? console.log(err) : console.log('Team profile generated!'));
+};
+
+generateTeam();
 
 
 

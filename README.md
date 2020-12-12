@@ -3,7 +3,7 @@
 ![badge](https://img.shields.io/badge/license-MIT-blue)<br />
 
   ### Description
-  A node.js app that generates a team profile focusing the use of object oriented programing and test driven development. 
+  A node CLI app that generates a team profile focusing use of object oriented programing and test driven development. 
   
   ### Table of Contents
   - [Description](#description)
