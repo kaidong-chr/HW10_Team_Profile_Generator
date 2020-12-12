@@ -133,9 +133,6 @@ basicQuestions = async () => {
       );
       return internInput;
 
-    // default:
-    //   console.log("Continue");
-    //   return;
   }
 };
 
@@ -146,7 +143,7 @@ const employee = [];
 const generateTeam = async () => {
   let team = await basicQuestions();
   employee.push(team);
-
+    // Additional questions prompt 
   inquirer
     .prompt([
       {
@@ -155,6 +152,7 @@ const generateTeam = async () => {
         message: "Would you like to add more team members?",
       },
     ])
+    // If the user would like to add more members, let's run it again, otherwise generate the html file.
     .then((data) => {
       if (data.additional) {
         generateTeam();
@@ -166,4 +164,5 @@ const generateTeam = async () => {
     });
 };
 
+// Call this function will start the app
 generateTeam();
