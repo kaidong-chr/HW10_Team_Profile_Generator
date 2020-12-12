@@ -17,7 +17,8 @@
   - [License](#license)
 
   ### Demo
-![Image](./assets/images/Profile_Generator.gif "README Demo")
+![Image](./assets/images/Profile_Generator.gif "Profile Generator Demo")<br />
+![Image](./assets/images/Fifth_Profile_Generated.jpg "Generated Profile")
 
 ![Image](https://img.shields.io/badge/Languages-JavaScript-yellow)
 
