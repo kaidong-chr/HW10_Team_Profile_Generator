@@ -49,33 +49,39 @@ const basicQuestions = () => {
             let managerInput = new Manager(data.name, data.id, data.email, manager.officeNumber)
             return managerInput
 
-        default:
-            console.log("Continue")
-            return
-
         case "Engineer":
             const engineer = ([
                 {
                     type: 'input',
                     name: 'github',
-                    message: "What is your github link?",
+                    message: "Engineer, what is your github?",
                 }
             ])
-            let engineerInput = new engineer(data.name, data.id, data.email, engineer.github)
+            let engineerInput = new Engineer(data.name, data.id, data.email, engineer.github)
             return engineerInput
+
+        case "Intern":
+            const intern = ([
+                {
+                    type: 'input',
+                    name: 'school',
+                    message: "Intern, what school do you currently attend?",
+                }
+            ])
+            let internInput = new Intern(data.name, data.id, data.email, intern.school)
+            return internInput
 
         default:
             console.log("Continue")
             return
-        
      }
      
 }
 
 const employee = [];
 const generateTeam = () => {
-    // let team = basicQuestions();
-    // employee.push(team);
+    let team = basicQuestions();
+    employee.push(team);
     fs.writeFile(outputPath, render(employee), (err) => err ? console.log(err) : console.log('Team profile generated!'));
 };
 
